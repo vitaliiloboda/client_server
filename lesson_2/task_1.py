@@ -16,6 +16,7 @@ main_data — и поместить в него названия столбцо�
 а также сохранение подготовленных данных в соответствующий CSV-файл;
 Проверить работу программы через вызов функции write_to_csv().
 """
+
 import csv
 from chardet import detect
 import re
@@ -49,7 +50,7 @@ def get_data(files: list, params: list, lists: list) -> list:
 def write_to_csv(file: str, files: list, params: list, lists: list) -> None:
     data = get_data(files, params, lists)
 
-    with open(file, 'w', encoding='utf-8') as file:
+    with open(file, 'w', encoding='utf-8', newline='') as file:
         file_writer = csv.writer(file)
         file_writer.writerows(data)
 
