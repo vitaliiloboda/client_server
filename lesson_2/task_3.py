@@ -12,14 +12,8 @@
 """
 import yaml
 
-list_for_key = ['one', 'two', 'three']
-int_for_key = 5
-dict_for_key = {'1€': 1, '2€': 2, '3€': 3, '4€': 4, '5€': 5}
 
-data = {'one': list_for_key, 'two': int_for_key, 'three': dict_for_key}
-
-
-def data_to_yaml(data):
+def data_to_yaml(data: dict) -> None:
     with open('file.yaml', 'w', encoding='utf-8') as file:
         yaml.dump(data, file, default_flow_style=False, allow_unicode=True, sort_keys=False, indent=4)
 
@@ -28,4 +22,10 @@ def data_to_yaml(data):
         print(content)
 
 
-data_to_yaml(data)
+list_for_key = ['one', 'two', 'three']
+int_for_key = 5
+dict_for_key = {'1€': 1, '2€': 2, '3€': 3, '4€': 4, '5€': 5}
+
+data_dict = {'one': list_for_key, 'two': int_for_key, 'three': dict_for_key}
+
+data_to_yaml(data_dict)
