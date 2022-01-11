@@ -53,7 +53,6 @@ def main():
             listen_address = sys.argv[sys.argv.index('-a') + 1]
         else:
             listen_address = ''
-
     except IndexError:
         print('После параметра \'a\' - необходимо указать адрес, который будет слушать сервер')
         sys.exit(1)
@@ -61,7 +60,7 @@ def main():
     # Готовим сокет
 
     transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    transport.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # для тестирования
+    transport.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # для отладки
     transport.bind((listen_address, listen_port))
 
     # Слушаем порт
